@@ -1,0 +1,52 @@
+/* Actual phones use their own safe areas, keyboard and system chrome. */
+.device-screen.phone-native {
+  position: fixed;
+  border-radius: 0;
+  overflow: hidden;
+  isolation: isolate;
+  --phone-top: env(safe-area-inset-top, 0px);
+  --device-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  cursor: auto !important;
+}
+.phone-native *, .phone-native *::before, .phone-native *::after { cursor: auto !important; }
+.phone-native .mobile-app-viewport { bottom: 0 !important; }
+.phone-native .nm-app {
+  --nm-header: calc(var(--phone-top) + 66px) !important;
+  --nm-bottom: env(safe-area-inset-bottom, 0px) !important;
+}
+.phone-native .nm-app.keyboard-open { --nm-bottom: 0px !important; }
+.phone-native .nm-main-header { padding-top: calc(var(--phone-top) + 12px); }
+.phone-native .nm-topbar { height: calc(var(--phone-top) + 62px); padding-top: calc(var(--phone-top) + 10px); }
+.phone-native .nm-app .nm-flow-scroll { top: calc(var(--phone-top) + 62px); }
+.phone-native .nm-studio-topbar { top: calc(var(--phone-top) + 10px); }
+.phone-native .nm-studio-canvas { top: calc(var(--phone-top) + 68px); }
+.phone-native .nm-onboarding > header { top: calc(var(--phone-top) + 14px); }
+.phone-native .nm-onboarding-hand { top: calc(var(--phone-top) + 50px); }
+.phone-native .vm-heading { padding-top: calc(var(--phone-top) + 22px); }
+.phone-native .vm-overview { top: calc(var(--phone-top) + 158px) !important; }
+.phone-native .vm-search-screen header, .phone-native .vm-detail header {
+  height: calc(var(--phone-top) + 86px);
+  padding-top: calc(var(--phone-top) + 18px);
+}
+.phone-native .vm-search-results { top: calc(var(--phone-top) + 156px) !important; }
+.phone-native .vm-detail-scroll { top: calc(var(--phone-top) + 86px) !important; }
+.phone-native .v2-ar-session::before { height: var(--phone-top); }
+.phone-native .v2-ar-session > header { top: calc(var(--phone-top) + 10px); }
+.phone-native .v2-ar-scope { top: calc(var(--phone-top) + 62px); }
+.phone-native .v2-ar-camera-error { top: calc(var(--phone-top) + 106px); }
+.phone-native .bottom-sheet {
+  bottom: 0 !important;
+  max-height: calc(100% - var(--phone-top) - 12px) !important;
+  min-height: min(260px, 100%);
+}
+.phone-native .sheet-content { padding-bottom: max(24px, env(safe-area-inset-bottom, 0px)) !important; }
+.phone-native input:not([type=range]):not([type=checkbox]):not([type=radio]), .phone-native textarea, .phone-native select {
+  font-size: 16px !important;
+}
+.phone-native :focus-visible { outline: 2px solid #9a4c66 !important; outline-offset: 3px !important; }
+@media (orientation: landscape) {
+  .phone-native .nm-app {
+    left: env(safe-area-inset-left, 0px);
+    right: env(safe-area-inset-right, 0px);
+  }
+}

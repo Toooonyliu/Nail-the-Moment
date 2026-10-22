@@ -1,0 +1,72 @@
+/* Clear, tactile controls shared by the three app screens. */
+.nm-app { --nm-nav:76px; --control-line:#bcb1a6; --control-ink:#2b211b; }
+:is(.nm-app,.nm-sheet,.vm-editor) button {
+  transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease,box-shadow 180ms ease,scale 180ms cubic-bezier(.2,.75,.25,1);
+  -webkit-tap-highlight-color:transparent;
+}
+:is(.nm-app,.nm-sheet,.vm-editor) button:not(:disabled):active { scale:.96; transition-duration:100ms; }
+:is(.nm-app,.nm-sheet,.vm-editor) button:focus-visible { outline:2px solid #a83c62; outline-offset:4px; }
+:is(.nm-app,.nm-sheet) .nm-button { border:1px solid #2b211b!important; border-radius:16px; transform:none; box-shadow:0 2px 0 #2b211b18; }
+:is(.nm-app,.nm-sheet) .nm-button>span { transform:none; }
+.nm-app :is(.nm-icon,.v4-reset-view,.v2-zoom>button,.vm-header-actions>button,.vm-search-screen header>button,.vm-detail header>button) {
+  width:44px; height:44px; min-width:44px; min-height:44px; display:grid; place-items:center;
+  border:1px solid var(--control-line)!important; border-radius:50%; background:#fffdfaf2!important; color:var(--control-ink)!important; box-shadow:0 1px 2px #2b211b08;
+}
+.nm-app button:disabled { opacity:.35; box-shadow:none; }
+.nm-app .v3-import { border:1px solid var(--control-line)!important; font-weight:600; color:var(--control-ink); box-shadow:0 1px 2px #2b211b08; }
+.nm-app .v2-history { gap:6px; padding:0; background:none; backdrop-filter:none; }
+.nm-app .nm-canvas-selection>button { border:1px solid var(--control-line)!important; min-height:44px; padding-inline:12px; background:#fffdfaf2; box-shadow:0 1px 2px #2b211b08; }
+.nm-app .v2-zoom { gap:6px; }
+.nm-app.is-tuning .nm-canvas-selection .v2-zoom { top:51px; }
+.nm-app.is-editor .nm-studio-tools { border-color:var(--control-line); background:#fffdfa; box-shadow:0 8px 24px #2b211b08; border-radius:22px; }
+.nm-app .v3-edit-heading { height:37px; margin-bottom:3px; }
+.nm-app .v3-edit-heading>button { min-height:32px; padding:4px 9px; border:1px solid var(--app-line)!important; border-radius:16px; font-size:10px; }
+.nm-app .nm-studio-tool-tabs { gap:4px; height:49px; padding-bottom:6px; border-bottom:1px solid var(--app-line); }
+.nm-app .nm-studio-tool-tabs>button { height:39px; padding:7px 2px!important; border:1px solid var(--app-line)!important; border-radius:13px; font-size:9px!important; gap:3px; color:#6e6259; }
+.nm-app .nm-studio-tool-tabs>button[aria-pressed=true] { background:var(--control-ink); border-color:var(--control-ink)!important; color:#fffdfa; }
+.nm-app :is(.v2-shapes,.v2-finishes,.nm-studio-detail-add,.v2-detail-controls)>button { border:1px solid var(--app-line)!important; background:#fffdfa; }
+.nm-app :is(.v2-shapes,.v2-finishes)>button[aria-pressed=true] { background:#eee7df; border-color:var(--control-ink)!important; }
+.nm-app .v3-dock-action>span { border:1.25px solid var(--control-line); box-shadow:0 1px 2px #2b211b08; }
+.nm-app .v3-try-on>span { border-color:var(--control-ink); box-shadow:inset 0 0 0 5px #faf7f2,inset 0 0 0 40px var(--control-ink); }
+.nm-app .v4-pose-trigger { border:1.25px solid var(--control-line)!important; background:#fffdfaf2; color:var(--control-ink); box-shadow:0 2px 5px #2b211b0c; }
+.nm-app .v4-pose-knob.is-open .v4-pose-trigger { background:var(--control-ink); border-color:var(--control-ink)!important; color:#fffdfa; }
+.nm-app .v8-pose-reset { position:absolute; top:-65px; right:-4px; width:62px; min-height:44px; display:flex; gap:4px; align-items:center; justify-content:center; border:1px solid var(--control-line)!important; border-radius:23px; background:#fffdfaf2; color:var(--control-ink); font-size:10px; font-weight:600; box-shadow:0 1px 2px #2b211b08; }
+.v8-pose-reset svg { transition:rotate 220ms ease; }
+.v8-pose-reset:active svg { rotate:-45deg; }
+.nm-app .v4-pose-option { border:1px solid var(--control-line)!important; border-radius:19px; box-shadow:0 3px 9px #2b211b10; animation:v8-pose-arrive 200ms cubic-bezier(.2,.75,.25,1) both; }
+.nm-app .v4-pose-option:is([aria-pressed=true],.is-target) { border-color:var(--control-ink)!important; background:#eee7df; box-shadow:0 0 0 1px var(--control-ink); }
+.nm-app .v4-pose-close { width:44px; height:44px; border:1px solid var(--control-line)!important; background:#fffdfa; }
+.nm-app .v4-pose-label { color:#6e6259; font-weight:500; }
+.nm-app .v4-saved-nav,.nm-app .vm-switch { border:1px solid var(--app-line); background:#eee7df; }
+.nm-app .v4-saved-nav button { border:1px solid transparent!important; }
+.nm-app .v4-saved-nav button[aria-pressed=true] { border-color:var(--control-line)!important; box-shadow:0 1px 2px #2b211b08; }
+.nm-app .vm-switch>span { border:1px solid var(--control-line); }
+.nm-app .v4-upload { border:1px solid var(--control-ink)!important; background:var(--control-ink); box-shadow:0 2px 3px #2b211b06; }
+.nm-app .v4-library-tabs button { border-bottom:1px solid var(--app-line)!important; padding-bottom:10px; }
+.nm-app .v4-library-tabs button[aria-pressed=true] { border-bottom:2px solid var(--control-ink)!important; }
+.nm-app :is(.nm-chip,.v4-explore-filters>button,.vm-year-nav>button,.vm-ruler-labels>button,.vm-calendar-toolbar>button) { border:1px solid var(--control-line)!important; }
+.nm-app .nm-bottom-nav { left:16px; right:16px; bottom:calc(var(--nm-bottom) + 10px); height:66px; padding:5px 7px; border:1px solid var(--control-line); border-radius:34px; background:#fffdfaf5!important; box-shadow:0 4px 14px #2b211b0a; gap:6px; }
+.nm-app .nm-bottom-nav>button { min-height:54px; border:1px solid var(--app-line)!important; border-radius:28px; gap:3px; color:#6e6259!important; }
+.nm-app .nm-bottom-nav>button>svg { width:22px; height:22px; }
+.nm-app .nm-bottom-nav>button>span { font-size:10px; font-weight:600; }
+.nm-app .nm-bottom-nav>button[aria-current=page],.nm-app.is-moments .nm-bottom-nav>button[aria-current=page] { background:var(--control-ink); border-color:var(--control-ink)!important; color:#fffdfa!important; }
+.nm-app .nm-bottom-nav>button[aria-current=page]>svg,.nm-app.is-moments .nm-bottom-nav>button[aria-current=page]>svg { color:#fffdfa!important; }
+@media (hover:hover) { .nm-app button:not(:disabled):hover { border-color:#77675b!important; } }
+@keyframes v8-pose-arrive { from { opacity:0; translate:7px 8px; } to { opacity:1; translate:0 0; } }
+@media (prefers-reduced-motion:reduce) {
+  :is(.nm-app,.nm-sheet,.vm-editor) button { transition:none; }
+  :is(.nm-app,.nm-sheet,.vm-editor) button:not(:disabled):active { scale:1; }
+  .nm-app .v4-pose-option { animation:none; }
+  .v8-pose-reset svg { transition:none; }
+  .v8-pose-reset:active svg { rotate:0deg; }
+}
+/* Leave the design caption and the right-side controls clear of an open hand. */
+.nm-app.is-editor:not(.is-tuning) .nm-studio-canvas { bottom:calc(var(--nm-nav) + var(--nm-bottom) + 152px); }
+.nm-app .v4-pose-knob { top:53%; }
+
+.nm-app .v4-upload>span { border:1px solid #fffdfa55; }
+.nm-app .v4-upload small { color:#e3d9d1; }
+/* Keep editing actions in one row above the visible nail tips. */
+.nm-app.is-tuning .nm-studio-canvas { top:calc(var(--v3-top) + 118px); }
+.nm-app.is-tuning .nm-canvas-selection { top:calc(var(--v3-top) + 58px); }
+.nm-app.is-tuning .nm-canvas-selection .v2-zoom { top:0; left:auto; right:calc(100% + 8px); width:max-content; }

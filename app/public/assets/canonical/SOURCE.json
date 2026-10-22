@@ -1,0 +1,26 @@
+{
+  "description": "Still renders exported from the same interactive Studio hand model. Not photographs of a person.",
+  "mesh": "../3d/generic-hand-left.glb",
+  "handedness": "right",
+  "skin_tone": "#C78D66",
+  "background": "#faf7f2",
+  "pose_reference": "User-provided single-hand manicure poses; original reference images are not redistributed.",
+  "images": {
+    "butter.webp": "2b23494e2d139f32c4fa8338d8769d60c3392f474c5767b59462441cde8dc28d",
+    "cherry.webp": "e715ac8460f04470e72780949d44229d9ec41a48f2142072209614aeaa779f43",
+    "french.webp": "66a412eb35cb22c3cc95ded14ea42fcbe945b88e64cbb19ddb252b5f35938123",
+    "mocha.webp": "68a26412f0a0d1c2013af317d3f2d434f95e2e2e21375552d7dd4f0782d574f5",
+    "peach.webp": "c9227260b807a9c8ce4710e62fc2e7f193ea49268619b053bbcbcc35f093dfb6",
+    "pearl.webp": "defc0c1236a4d78d5b9c361c9930239b3ed937f43a8114cdac0f621b52ea3398",
+    "pose-curl.webp": "488b8abd8df2e85603a23735ccadcb422d0e5e35a0b3e579d71fcbd14ce1ab7d",
+    "pose-fan.webp": "729fd3bb76b7dc2791d06c63e7ff9bff5889796796a8c4f5c269fc421a688c8b",
+    "pose-pinch.webp": "548425c3220296568488234d3969b6dcb6fab4d9750b94e50a20f4e2e6ee70b4",
+    "pose-poise.webp": "aa52d7868ebabe690266d3df8712cca3bcf1a0c813d8e68978850674c8915a72",
+    "pose-relaxed.webp": "85be97f4d8e40896b05aadf322245e16bc055ba52e0debb0c9c4648fcc71ebca",
+    "rose.webp": "3b2a2270b93b4635d6d10ebae6d4907702aef1e886034929ad4d071f23ed2479",
+    "silver.webp": "af4b8a9073604cc2825864acf791c9ba5b67cf4147dcab5acc858f2f206868ad",
+    "slate.webp": "a2d81a08f49929afbf41df91df33126613df18c5b25b5b8d8fe2ee597e081a83",
+    "swirl.webp": "506bb1a9a8ba3f58b5f9432f0dd2334989ddd44f709d50c2c8aa9845b8c9ada4"
+  },
+  "pose_revision": "2026-10-21: relaxed finger arcs, gentle thumb-index pinch and coordinated wrist/fingertip transition; Open and Curl preserved."
+}

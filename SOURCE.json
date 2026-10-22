@@ -1,0 +1,13 @@
+{
+  "project": "Nail the Moment",
+  "source_commit": "29e19b2c3ad6cd50da540ac9d3047483e039f3b1",
+  "app_version": 8,
+  "presentation_version": 11,
+  "export_date": "2026-10-21",
+  "upstream_presentation": "https://nail-the-moment-saved-preview.shl065.chatgpt.site/presentation/",
+  "slide_8_source": "32be608c60d83aefb2de805a73efb135.mp4",
+  "hosting_changes": [
+    "Build static assets for GitHub Pages without the previous host's Worker packaging or deployment identity.",
+    "Adapt generated root-relative URLs to the repository prefix without changing protected application source."
+  ]
+}

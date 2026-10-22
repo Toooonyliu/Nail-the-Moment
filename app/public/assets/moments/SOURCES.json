@@ -1,0 +1,79 @@
+{
+  "purpose": "Real-photograph sample memories only. Not the current user’s photos or history.",
+  "local_reference": "/Users/tonyliu/Desktop/Nail_The_Moments/Moments_设计交接_2026-10-20/Moments-source/assets/source-manifest.json",
+  "original_design": "https://www.figma.com/design/f486RbBlRpEgJx4EWuICgq/10.16-10.19-SVSD-Design-Challenge?node-id=301-1100",
+  "photos": [
+    {
+      "file": "imgPhoto.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/ce25ba78-2529-4dca-abb8-5ab828b40639.png",
+      "sha256": "ded9ebc6cd7383cdbf38e44cd7658673c1b74f91d2b9bb41431e2fde4e9bc074"
+    },
+    {
+      "file": "imgPhoto1.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/5b89a69f-a342-45c9-8bbd-73d92d366b2e.png",
+      "sha256": "ca898eca099da781592a176ae0b0f208ebf812857b888045d8be00e2f7379f99"
+    },
+    {
+      "file": "imgPhoto2.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/58414e99-a1a8-4e09-a7ad-42acdedde004.png",
+      "sha256": "cfe1c69409c6bed15c939d1d3b82927851b4c4a767a9414de590bfc244c153ef"
+    },
+    {
+      "file": "imgPhoto3.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/c084dd61-8cf9-4eb0-be76-445f97c6ad2c.png",
+      "sha256": "c17ea2105ff3eb4b24f86e13a131f9730703213670fbe8fb91fb30bf841a38c7"
+    },
+    {
+      "file": "imgPhoto4.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/adda1653-4eb7-42ae-8467-4d42cf4fe3fe.png",
+      "sha256": "eb10c985d54962b2179aa1f8d27c8a95f970a159472beac9dac702e028d5ff71"
+    },
+    {
+      "file": "imgPhoto5.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/bc39a1aa-a8ec-4eff-8d94-e6fe3a21fb01.png",
+      "sha256": "6759b9c3c3c9895f352200c0d2920bade32b7071d1bdc57aecddfba0c526f619"
+    },
+    {
+      "file": "imgPhoto6.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/0783df3b-ba05-4d20-9bbc-4c89182ae9fe.png",
+      "sha256": "81d2e7fbd7cabaa6be253ef0ac6ecb1265161b9fda0ba0f3320cdf044eb3e2af"
+    },
+    {
+      "file": "imgPhoto7.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/ec75344a-95fc-4d6c-a238-469c550578ed.png",
+      "sha256": "6d9ecb4406f528440a949d0442441c2c99550e3f6187fe50f6d363a81e65fca5"
+    },
+    {
+      "file": "imgPhoto8.png",
+      "source": "User-supplied original Moments handoff",
+      "original_url": "https://www.figma.com/api/mcp/asset/9f5882d3-a2df-4af8-8449-caae03865ac7.png",
+      "sha256": "a67c6dae70bc0ebbf5b724bc4757a5269a2bf00a98d9b396f8933b6973b84f21"
+    },
+    {
+      "file": "iwaria-manicure.jpg",
+      "photographer": "Iwaria Inc.",
+      "source_page": "https://unsplash.com/photos/a-person-getting-the-nails-painted-DzMmp0uewcg",
+      "download_url": "https://images.unsplash.com/photo-1655720360101-59ae4e315572?auto=format&fit=max&w=1200&q=85",
+      "license": "https://unsplash.com/license",
+      "retrieved": "2026-10-21",
+      "sha256": "657985f93225b19d121a43d521ad6b890e2fcf9909d8031eeb4485a6e09e1cb6"
+    },
+    {
+      "file": "kris-atomic-manicure.jpg",
+      "photographer": "Kris Atomic",
+      "source_page": "https://unsplash.com/photos/Xa8fX8bQCgs",
+      "download_url": "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?auto=format&fit=max&w=1200&q=85",
+      "license": "https://unsplash.com/license",
+      "retrieved": "2026-10-21",
+      "sha256": "5fc54d0c9469b9e01c3cc606136f3e0c44d32a051bf5ad200ebd1c71d6a4d265"
+    }
+  ]
+}

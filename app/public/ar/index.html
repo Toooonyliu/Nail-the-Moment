@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#171717"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Nail camera preview"><title>Nail try-on</title>
+<link rel="stylesheet" href="./style.css?v=12">
+<script>if(new URLSearchParams(location.search).get('shared')==='1')document.documentElement.classList.add('shared-model');</script>
+</head><body>
+<main id="app" data-side="right" data-panel="home">
+  <section id="stage" class="stage" aria-label="Camera try-on">
+    <video id="camera" autoplay playsinline muted aria-hidden="true"></video>
+    <div id="renderMount"></div>
+    <button id="startCamera" class="camera-button" aria-label="Start camera" hidden></button>
+  </section>
+  <section class="control-deck" aria-label="DIY controls">
+    <div class="orbit" id="orbit">
+      <button class="bubble sub-bubble color-bubble" id="colorBtn" aria-label="Color" hidden></button>
+      <button class="bubble sub-bubble length-bubble" id="lengthBtn" aria-label="Length" hidden></button>
+      <button class="bubble sub-bubble shape-bubble" id="shapeBtn" aria-label="Shape" hidden></button>
+      <button class="bubble sub-bubble material-bubble" id="materialBtn" aria-label="Finish" hidden></button>
+      <div id="colorPanel" class="color-panel" hidden>
+        <div class="blossom-picker" id="blossomPicker" data-open="false">
+          <div class="blossom-petals" id="blossomPetals" role="group" aria-label="Colors" inert></div>
+          <button class="choice-button blossom-core" id="blossomCore" aria-controls="blossomPetals" aria-expanded="false" aria-label="Expand colors"></button>
+        </div>
+        <div class="arc-control color-arc" id="colorArc">
+          <svg id="colorSlider" viewBox="0 0 220 220" role="slider" tabindex="0" aria-label="Color tone" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <path class="arc-track"/><g class="arc-segments"></g><circle class="arc-knob" cx="24" cy="110" r="11.5"/><path class="arc-hit"/>
+          </svg>
+        </div>
+      </div>
+      <div class="arc-control length-arc" id="lengthPanel" hidden>
+        <svg id="lengthSlider" viewBox="0 0 220 220" role="slider" tabindex="0" aria-label="Nail length" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46">
+          <path class="arc-track"/><path class="arc-progress"/><circle class="arc-knob" cx="24" cy="110" r="11.5"/><path class="arc-hit"/>
+        </svg>
+      </div>
+      <div id="stepControls" class="step-controls" hidden><span id="stepLabel" role="status" aria-live="polite"></span><div><button id="stepDown" aria-label="Decrease value">−</button><button id="stepUp" aria-label="Increase value">+</button></div></div>
+      <div id="choicePanel" class="choice-panel" role="group" hidden></div>
+      <button class="bubble main-bubble" id="mainBtn" aria-label="Open DIY"><span>DIY</span></button>
+      <button class="bubble side-switch" id="sideSwitch" aria-label="Switch controls to left" title="Switch controls to left"></button>
+    </div>
+  </section>
+  <div class="toast" id="toast" role="status" hidden></div>
+</main>
+<script type="module" src="./app.js?v=12"></script>
+</body></html>

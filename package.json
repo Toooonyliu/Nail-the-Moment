@@ -1,0 +1,10 @@
+{
+  "name": "nail-the-moment-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-pages.mjs",
+    "test": "node scripts/validate-pages.mjs"
+  },
+  "engines": { "node": ">=22.12.0" }
+}

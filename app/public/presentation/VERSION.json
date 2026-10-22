@@ -1,0 +1,18 @@
+{
+  "project": "Nail the Moment",
+  "version": 11,
+  "export_date": "2026-10-21",
+  "slide_count": 11,
+  "source_html_sha256": "bc0f8616171eaf47a47db4e78908e70467522d10762d1c99d321889ff388ace7",
+  "entry_point": "index.html",
+  "app_dependency": "same-origin /?phone=1&demo=1",
+  "script_source": "https://docs.google.com/document/d/1v8Wgj6o1axOSSV5rNa1ccgHYMPy8I9T8JnsvKwZQBOg/edit",
+  "primary_script_tab": "\u8bb2\u7a3f",
+  "feature_media": [
+    "moments.mp4",
+    "studio.mp4",
+    "slide-08-phone.gif",
+    "journey.mp4"
+  ],
+  "slide_8_recording": "User-supplied real-hand AR recording; browser chrome removed, full 36.97-second sequence"
+}

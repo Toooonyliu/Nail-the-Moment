@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "Nail the Moment",
+  "short_name": "Nail the Moment",
+  "description": "Try your next set. Keep the moments.",
+  "start_url": "/?phone=1&demo=1&screen=studio",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#faf7f2",
+  "icons": [
+    { "src": "/assets/app-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

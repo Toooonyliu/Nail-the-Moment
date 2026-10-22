@@ -1,0 +1,60 @@
+:root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:#222;background:#171717;font-synthesis:none}
+.shared-model,.shared-model body,.shared-model #app{background:transparent}
+.shared-model .stage{visibility:hidden;background:transparent}
+.shared-model .step-controls{color:#6c574a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+body{margin:0;overscroll-behavior:none;overflow:hidden}
+button{font:inherit;border:0;cursor:pointer;color:inherit;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+button:focus-visible,[role=slider]:focus-visible{outline:2px solid #fff;outline-offset:5px}
+button:disabled{opacity:.4}
+svg{width:24px;height:24px;display:block;pointer-events:none}
+#app{position:relative;width:100%;height:100dvh;min-height:420px;overflow:clip;background:#171717}
+.stage{position:absolute;inset:0;overflow:hidden;background:#171717;isolation:isolate}
+#camera,#renderMount{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#camera{opacity:0}#camera.active{opacity:1}
+#renderMount{z-index:1;touch-action:none}#renderMount canvas{display:block;width:100%;height:100%}
+.control-deck{position:absolute;inset:0;background:transparent;pointer-events:none;z-index:3}
+.orbit{--flip:1;position:absolute;left:calc(100% - 207px);bottom:calc(25px + env(safe-area-inset-bottom));width:270px;height:270px;pointer-events:none;transition:left 440ms cubic-bezier(.22,1,.36,1)}
+#app[data-side=left] .orbit{--flip:-1;left:-63px}
+.bubble,.choice-button,.camera-button{background:#dededeee;border:1px solid #ffffff55;box-shadow:0 4px 16px #0000001c,0 1px 0 #ffffff44 inset;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform 90ms ease-out,box-shadow 130ms ease-out,background-color 130ms ease-out}
+.bubble,.choice-button{--x:0px;--y:0px;--size:56px;position:absolute;left:calc(135px + var(--flip)*var(--x) - var(--size)/2);top:calc(135px + var(--y) - var(--size)/2);width:var(--size);height:var(--size);display:grid;place-items:center;border-radius:50%;pointer-events:auto;padding:0}
+.main-bubble{--size:68px;font-size:20px;font-weight:650;letter-spacing:.2px;z-index:5}
+.main-bubble svg{width:25px;height:25px}
+.sub-bubble{--size:54px;z-index:3}.sub-bubble svg{width:25px;height:25px}
+.color-bubble{--y:-112px}.length-bubble{--x:-97px;--y:-56px}.shape-bubble{--x:-97px;--y:56px}.material-bubble{--y:112px}
+.side-switch{--size:46px;--y:112px;z-index:5;background:#dedededb}.side-switch svg{width:23px;height:23px}
+.bubble.is-pressed,.choice-button.is-pressed,.camera-button.is-pressed{transform:scale(.86);background-color:#f4f4f4;box-shadow:0 1px 4px #0004,0 0 0 4px #ffffff14}
+.color-panel,.choice-panel{position:absolute;inset:0;pointer-events:none;transform-origin:135px 135px;z-index:3}
+.blossom-picker{position:absolute;inset:0;pointer-events:none;z-index:3}
+.blossom-core{--size:48px;--y:-112px;padding:0;z-index:12;overflow:hidden;border:2px solid #ffffffc9;box-shadow:0 3px 12px #0003}
+.blossom-core-paint{position:absolute;inset:0;border-radius:50%;pointer-events:none}
+.blossom-petals{position:absolute;inset:0;pointer-events:none}
+.blossom-petal{position:absolute;left:111px;top:-1px;width:48px;height:48px;border-radius:50%;padding:0;background:var(--paint);border:1px solid #ffffff30;box-shadow:0 3px 9px #0002;opacity:0;visibility:hidden;pointer-events:none;transform:translate(0,0) scale(.52);transition:transform 210ms cubic-bezier(.4,0,.2,1) var(--fold-delay),opacity 150ms ease var(--fold-delay),visibility 0s linear 270ms,filter 120ms ease;z-index:2}
+.blossom-picker[data-open=true] .blossom-petal{opacity:1;visibility:visible;pointer-events:auto;transform:translate(calc(var(--flip)*var(--px)),var(--py)) scale(1);transition:transform 370ms cubic-bezier(.16,.85,.25,1.2) var(--petal-delay),opacity 170ms ease var(--petal-delay),visibility 0s,filter 120ms ease}
+.blossom-petal[aria-pressed=true]{box-shadow:0 0 0 2px #fffffff0,0 4px 12px #0003;z-index:4}
+.blossom-picker[data-open=true] .blossom-petal.is-pressed{transform:translate(calc(var(--flip)*var(--px)),var(--py)) scale(.88);filter:brightness(1.13);transition-duration:80ms;transition-delay:0ms}
+.blossom-petal:focus-visible{outline:2px solid white;outline-offset:3px;z-index:5}
+.arc-control{position:absolute;width:220px;height:220px;pointer-events:none;z-index:1;transform-origin:center}
+.color-arc{left:25px;top:-87px}.length-arc{left:25px;top:25px}
+.arc-control>svg{width:220px;height:220px;overflow:visible;pointer-events:auto;touch-action:none;transform:scaleX(var(--flip))}
+.arc-track{stroke:#dededed9;stroke-width:16;fill:none;stroke-linecap:round}
+.arc-progress{stroke:#aaa;stroke-width:16;fill:none;stroke-linecap:round;pointer-events:none}
+.arc-hit{stroke:transparent;stroke-width:44;fill:none;stroke-linecap:round;pointer-events:stroke}
+.arc-knob{r:11.5px;fill:#fff;stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 2px 4px #0005);pointer-events:none;transition:r 130ms cubic-bezier(.2,.8,.2,1),filter 130ms ease}
+.is-dragging .arc-knob{r:14px;filter:drop-shadow(0 3px 6px #0006)}
+.choice-button.option{--size:54px}.choice-button.option svg{width:25px;height:25px}
+.choice-button.option[aria-pressed=true]{background:#fff;box-shadow:0 0 0 3px #ffffff5c,0 5px 18px #0003}
+.camera-button{position:absolute;left:calc(50% - 31px);top:calc(50% - 31px);width:62px;height:62px;display:grid;place-items:center;border-radius:50%;z-index:2}
+.camera-button svg{width:27px;height:27px}
+.toast{position:absolute;top:calc(24px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);max-width:85%;width:max-content;padding:11px 15px;background:#333e;color:white;border-radius:20px;font-size:11px;line-height:1.5;text-align:center;z-index:6;pointer-events:none}
+@media(hover:hover){.blossom-picker[data-open=true] .blossom-petal:hover:not(.is-pressed){transform:translate(calc(var(--flip)*var(--px)),var(--py)) scale(1.045);filter:brightness(1.06)}}
+@supports(transition-timing-function:linear(0,1)){.blossom-picker[data-open=true] .blossom-petal{transition-timing-function:linear(0,.06 3%,.2 7%,.42 13%,.68 20%,.9 28%,1.02 35%,1.06 45%,1.025 53%,.997 62%,1 68%,1),ease,linear,ease}}
+@media(prefers-reduced-motion:reduce){.orbit,.bubble,.choice-button,.camera-button,.blossom-petal,.blossom-picker[data-open=true] .blossom-petal,.arc-knob{transition:none}}
+
+.arc-control>svg:focus-visible{outline:none}.arc-control>svg:focus-visible .arc-knob{stroke-width:4;filter:drop-shadow(0 0 4px #ffffffb3)}
+
+/* Explicit single-tap alternatives retain the short thumb arc. */
+.step-controls{position:absolute;left:-65px;top:15px;width:104px;color:#fff;pointer-events:auto;text-align:center;font-size:12px}
+.step-controls>div{display:flex;gap:8px;margin-top:7px}.step-controls button{width:48px;height:44px;border-radius:22px;background:#dededeee;color:#222;font-size:22px}
+#app[data-side=left] .step-controls{left:auto;right:-65px}
