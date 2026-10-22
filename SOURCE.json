@@ -9,5 +9,30 @@
   "hosting_changes": [
     "Build static assets for GitHub Pages without the previous host's Worker packaging or deployment identity.",
     "Adapt generated root-relative URLs to the repository prefix without changing protected application source."
-  ]
+  ],
+  "team": [
+    {
+      "name": "Gamma Zheng",
+      "role": "UX Designer"
+    },
+    {
+      "name": "Angie He",
+      "role": "UX Designer"
+    },
+    {
+      "name": "Tony Liu",
+      "role": "UX Designer"
+    }
+  ],
+  "case_study_source": {
+    "repository": "https://github.com/Toooonyliu/toooonyliu.github.io",
+    "commit": "9cfecb6fe202a07af2b7fd4e85ee9dbf4a20983a",
+    "path": "projects/nail-the-moment/",
+    "adaptation": "Independent team identity, equal hero credits, bundled visual assets, and same-site demo and presentation routes."
+  },
+  "entry_points": {
+    "project": "/Nail-the-Moment/",
+    "prototype": "/Nail-the-Moment/demo/",
+    "presentation": "/Nail-the-Moment/presentation/"
+  }
 }

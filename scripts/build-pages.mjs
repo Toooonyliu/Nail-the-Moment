@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -23,6 +23,8 @@ if (!existsSync(path.join(built, 'index.html'))) throw new Error('The app build 
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
 cpSync(built, dist, { recursive: true });
+mkdirSync(path.join(dist, 'demo'), { recursive: true });
+renameSync(path.join(dist, 'index.html'), path.join(dist, 'demo', 'index.html'));
 
 let adaptedFiles = 0;
 for (const file of filesBelow(dist)) {
@@ -40,7 +42,7 @@ const manifest = JSON.parse(readFileSync(manifestFile, 'utf8'));
 const prefix = value => value.startsWith(base) ? value : `${base}${value.replace(/^\//, '')}`;
 manifest.id = base;
 manifest.scope = base;
-manifest.start_url = prefix(manifest.start_url);
+manifest.start_url = `${base}demo/${manifest.start_url.slice(manifest.start_url.indexOf('?'))}`;
 manifest.icons = manifest.icons.map(icon => ({ ...icon, src: prefix(icon.src) }));
 writeFileSync(manifestFile, `${JSON.stringify(manifest, null, 2)}\n`);
 
@@ -49,8 +51,9 @@ const version = JSON.parse(readFileSync(versionFile, 'utf8'));
 version.upstream_source_html_sha256 = version.source_html_sha256;
 version.source_html_sha256 = sha256(readFileSync(path.join(dist, 'presentation', 'index.html')));
 version.deployment_base_path = base;
-version.app_dependency = `same-origin ${base}?phone=1&demo=1`;
+version.app_dependency = `same-origin ${base}demo/?phone=1&demo=1`;
 writeFileSync(versionFile, `${JSON.stringify(version, null, 2)}\n`);
+cpSync(path.join(root, 'site'), dist, { recursive: true });
 writeFileSync(path.join(dist, '.nojekyll'), '');
 
 console.log(`Prepared independent Pages site at ${base}; adapted ${adaptedFiles} generated text files.`);

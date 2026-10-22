@@ -64,7 +64,7 @@ export function validatePages({ root, base = normalizeBasePath(process.env.PAGES
   const manifest = JSON.parse(readFileSync(path.join(dist, 'manifest.webmanifest'), 'utf8'));
   assert.equal(manifest.id, base);
   assert.equal(manifest.scope, base);
-  assert.equal(manifest.start_url, `${base}?phone=1&demo=1&screen=studio`);
+  assert.equal(manifest.start_url, `${base}demo/?phone=1&demo=1&screen=studio`);
   for (const icon of manifest.icons) checkReference(icon.src, path.join(dist, 'manifest.webmanifest'));
 
   const presentationFile = path.join(dist, 'presentation', 'index.html');
@@ -77,7 +77,31 @@ export function validatePages({ root, base = normalizeBasePath(process.env.PAGES
   assert.equal((presentation.match(/aria-roledescription="slide"/g) ?? []).length, 11);
   assert(presentation.includes('assets/media/slide-08-phone.gif'), 'Slide 8 AR GIF missing');
   for (const screen of ['moments', 'studio', 'ar']) {
-    assert(presentation.includes(`data-src="${base}?phone=1&amp;demo=1&amp;screen=${screen}"`), `Missing scoped live ${screen} embed`);
+    assert(presentation.includes(`data-src="${base}demo/?phone=1&amp;demo=1&amp;screen=${screen}"`), `Missing scoped live ${screen} embed`);
+  }
+
+  // The team case study owns the homepage; the working prototype has its own route.
+  const landing = readFileSync(path.join(dist, 'index.html'), 'utf8');
+  for (const section of ['story', 'decisions', 'features', 'moments', 'studio', 'ar', 'journey', 'reference', 'demo', 'presentation', 'next']) {
+    assert(landing.includes(`id="${section}"`), `Case-study section missing: ${section}`);
+  }
+  for (const designer of ['Gamma Zheng', 'Angie He', 'Tony Liu']) {
+    assert(landing.includes(designer), `Team credit missing: ${designer}`);
+  }
+  assert(landing.includes('UX Designer'), 'Team roles missing');
+  assert(landing.includes('demo/?phone=1&amp;demo=1'), 'Phone entry point missing');
+  assert(landing.includes('demo/?phone=0&amp;demo=1'), 'Desktop entry point missing');
+  assert(landing.includes('presentation/'), 'Presentation entry point missing');
+  assert(landing.includes('https://github.com/Toooonyliu/Nail-the-Moment'), 'Independent source link missing');
+  const demoHtml = readFileSync(path.join(dist, 'demo', 'index.html'), 'utf8');
+  assert(demoHtml.includes('id="root"'), 'App missing from /demo/');
+  for (const source of filesBelow(path.join(root, 'site'))) {
+    const relative = path.relative(path.join(root, 'site'), source);
+    assert.equal(sha256(readFileSync(path.join(dist, relative))), sha256(readFileSync(source)), `Site file changed: ${relative}`);
+    if (['.html', '.css', '.js'].includes(path.extname(source))) {
+      const sourceText = readFileSync(source, 'utf8');
+      assert(!/nail-the-moment-saved-preview|\/projects\/mibly|\/projects\/nail-the-moment|More work by Tony|favicon-tl/.test(sourceText), `Personal portfolio dependency remains: ${relative}`);
+    }
   }
 
   const mainScripts = files.filter(file => path.dirname(file) === path.join(dist, 'assets') && path.extname(file) === '.js');

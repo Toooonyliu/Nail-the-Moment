@@ -1,0 +1,41 @@
+{
+  "project": "Nail the Moment",
+  "script": {
+    "title": "Nails",
+    "url": "https://docs.google.com/document/d/1v8Wgj6o1axOSSV5rNa1ccgHYMPy8I9T8JnsvKwZQBOg/edit",
+    "narrative_tab": "讲稿",
+    "images_tab": "图像"
+  },
+  "images": {
+    "photos/script-image-01.jpg": "Project scenario: before the appointment",
+    "photos/script-image-03.jpg": "Project scenario: discussing references with a nail artist",
+    "photos/script-image-05.jpg": "Actual early product interface exploration supplied in the document",
+    "photos/script-image-06.jpg": "Original Nail the Moment wordmark supplied in the document",
+    "photos/script-image-07.jpg": "Project scenario: a conversation at the salon",
+    "photos/script-image-08.jpg": "Project scenario: photographing a manicure"
+  },
+  "image_note": "Images supplied with the project script are scenario material, not evidence of participant research or measured outcomes. JPEG derivatives preserve the supplied images.",
+  "media": {
+    "media/studio.mp4": "Recording of the current sample-data Studio prototype",
+    "media/moments.mp4": "Recording of the sample-data Moments photo diary",
+    "media/ar.mp4": "Recording of the camera-off AR controls prototype; not live camera footage",
+    "media/journey.mp4": "Recorded prototype walkthrough"
+  },
+  "prototype": "https://toooonyliu.github.io/Nail-the-Moment/demo/",
+  "design_reference": "https://toooonyliu.github.io/projects/mibly/",
+  "brand": "brand-nail.svg is the original asset from the Nail the Moment prototype",
+  "team": [
+    {
+      "name": "Gamma Zheng",
+      "role": "UX Designer"
+    },
+    {
+      "name": "Angie He",
+      "role": "UX Designer"
+    },
+    {
+      "name": "Tony Liu",
+      "role": "UX Designer"
+    }
+  ]
+}

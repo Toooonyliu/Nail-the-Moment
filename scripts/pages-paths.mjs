@@ -20,7 +20,10 @@ export function rootUrlPattern() {
 }
 
 export function adaptRootUrls(text, base) {
-  return text.replace(rootUrlPattern(), (_, opener) => `${opener}${base}`);
+  return text.replace(rootUrlPattern(), (match, opener, offset) => {
+    const destination = text[offset + match.length] === '?' ? `${base}demo/` : base;
+    return `${opener}${destination}`;
+  });
 }
 
 export function filesBelow(directory) {
