@@ -14,7 +14,7 @@ Studio includes the articulated 3D hand, pose selection, nail editing and design
 
 This release preserves App v8 and Presentation v11. Slide 6 is unchanged; slide 8 uses the supplied AR recording as a cropped GIF. All fonts, photos, hand models, AR assets and presentation media are hosted with the site. The original hosted prototype is not required to run it.
 
-The homepage presents the complete project story, design decisions, animated feature demonstrations, and an embedded working prototype. It uses project branding and equal team credits, with no dependency on the personal portfolio.
+The homepage presents the complete project story, design decisions, animated feature demonstrations, and an embedded desktop simulator. The primary Desktop simulator button launches the framed, mouse-operated prototype in the page. Phone simulator opens an accessible QR dialog for the selected Studio, Moments, or Saved entry, with a direct link for visitors already on a phone. It uses project branding and equal team credits, with no dependency on the personal portfolio.
 
 ## Local development
 
@@ -50,3 +50,7 @@ Uploads, saved designs and memories are stored in each visitor's browser. They d
 
 The source snapshot is recorded in `SOURCE.json`. Attribution and third-party licenses remain alongside their assets in `app/public/`.
 
+
+## Phone QR codes
+
+The three QR images in `site/project-assets/qr/` encode this public GitHub Pages phone-demo URL, so they work when scanned from another device. They are generated locally, without an external QR service. To regenerate and decode-verify them on macOS, run `swift scripts/generate-phone-qr.swift` from the repository root. Update the public URL in that script if the production domain changes.

@@ -82,32 +82,26 @@
   const placeholder = $('#demo-placeholder');
   let frame = null;
   let activeEntry = 'studio';
-  function fitFrame() {
-    if (!frame) return;
-    const scale = Math.min(shell.clientWidth / 402, shell.clientHeight / 852);
-    frame.style.transform = `translate(-50%, -50%) scale(${scale})`;
-  }
-  new ResizeObserver(fitFrame).observe(shell);
   function launch(screen = 'studio') {
     if (!Object.hasOwn(descriptions, screen)) return;
     activeEntry = screen;
     if (frame) frame.remove();
     frame = document.createElement('iframe');
-    frame.title = `Interactive Nail the Moment prototype, starting in ${titles[screen]}`;
+    frame.title = `Nail the Moment desktop simulator, starting in ${titles[screen]}`;
     frame.allow = 'camera; clipboard-write; fullscreen';
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     const url = new URL(host);
-    url.searchParams.set('phone', '1');
+    url.searchParams.set('phone', '0');
     url.searchParams.set('demo', '1');
     url.searchParams.set('screen', screen);
     frame.src = url.href;
+    $('#desktop-separate').href = url.href;
     $('[data-current-screen]').textContent = `Opening ${titles[screen]}…`;
     $('[data-feature-description]').textContent = descriptions[screen];
     frame.addEventListener('load', () => {
       $('[data-current-screen]').textContent = `Started in ${titles[screen]}. Explore freely.`;
     }, { once: true });
     shell.replaceChildren(frame);
-    fitFrame();
     $('#close-demo').hidden = false;
     $('#reload-demo').hidden = false;
     $$('[data-feature]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.feature === screen)));
@@ -122,11 +116,35 @@
     $('[data-feature-description]').textContent = 'Launch a screen to explore. Camera access is requested only when you choose live try-on.';
     $$('[data-feature]').forEach(button => button.setAttribute('aria-pressed', 'false'));
   }
-  $('#load-demo').addEventListener('click', () => launch());
+  $('#load-demo').addEventListener('click', () => launch(activeEntry));
+  $('#desktop-demo').addEventListener('click', () => launch(activeEntry));
   $('#close-demo').addEventListener('click', () => { closeDemo(); $('#load-demo').focus(); });
   $('#reload-demo').addEventListener('click', () => launch(activeEntry));
   $$('[data-feature]').forEach(button => button.addEventListener('click', () => launch(button.dataset.feature)));
   $$('[data-open-demo]').forEach(link => link.addEventListener('click', () => launch(link.dataset.openDemo)));
+
+  const phoneDialog = $('#phone-dialog');
+  function openPhoneDialog() {
+    const screen = activeEntry;
+    $('#phone-qr').src = `project-assets/qr/phone-${screen}.png`;
+    $('#phone-qr').alt = `QR code to open ${titles[screen]} on your phone`;
+    $('#phone-entry').textContent = `Opens ${titles[screen]}`;
+    const url = new URL(host);
+    url.searchParams.set('phone', '1');
+    url.searchParams.set('demo', '1');
+    url.searchParams.set('screen', screen);
+    $('#phone-direct').href = url.href;
+    phoneDialog.showModal();
+    document.documentElement.classList.add('phone-dialog-open');
+  }
+  $$('[data-phone-demo]').forEach(button => button.addEventListener('click', openPhoneDialog));
+  $('#close-phone-dialog').addEventListener('click', () => phoneDialog.close());
+  phoneDialog.addEventListener('close', () => document.documentElement.classList.remove('phone-dialog-open'));
+  phoneDialog.addEventListener('click', event => {
+    if (event.target !== phoneDialog) return;
+    const rect = phoneDialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) phoneDialog.close();
+  });
 
   let ticking = false;
   function updateChapter() {
